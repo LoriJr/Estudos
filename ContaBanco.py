@@ -4,10 +4,11 @@ class ContaCorrente:
         self.nome = nome
         self.cpf = cpf
         self.saldo = 0
+        self.limite = None
         self.agencia = agencia
         self.numero_conta = numero_conta
-
-    def _limite_conta(self): #métodos com o _ no início significam que são métodos privados por convenção
+        
+    def _limite_conta(self): #métodos com o _ no início significam que são métodos privados por convenção, e deve ser usado somente dentro da classe 
         self.limite = -1000
         return self.limite
 
