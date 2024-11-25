@@ -20,12 +20,13 @@ class ContaCorrente:
 
     def depositar(self, valor_deposito):
         self.saldo += valor_deposito 
-        print(f"Depósito realizado, saldo: {self.consultar_saldo()}")
-
-   
+        #print(f"Depósito realizado, saldo: {self.consultar_saldo()}")   
 
     def consultar_saldo(self):
         print(f'Seu saldo é de R$ {self.saldo}')
+
+    def consultar_limite_cheque_especial(self):
+        print("Seu limite de cheque especial é de {:,.2f}".format(self._limite_conta()))
         
 
 conta_lou = ContaCorrente("Lourival", "123.456.789-10", 1234, 3046)
