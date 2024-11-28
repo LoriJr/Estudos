@@ -44,13 +44,27 @@ class ContaCorrente:
         print("Valor, Saldo, Data e Hora")
         for transacao in self.transacoes:
             print(transacao)
+
+    def transferir(self, valor, conta_destino):
+        self.saldo -= valor
+        self.transacoes.append((valor, self.saldo, ContaCorrente._data_hora()))
+        conta_destino.saldo += valor
+        conta_destino.transacoes.append((valor, conta_destino.saldo, ContaCorrente._data_hora()))
+
         
 
-conta_lou = ContaCorrente("Lourival", "123.456.789-10", 1234, 3046)
+conta_lou = ContaCorrente("Lourival", "123.456.789-10", 1234, 304678)
+conta_lais = ContaCorrente('Lais', '121.950.656-10', 222, 123456)
 
-conta_lou.depositar(200)
+conta_lou.depositar(1500)
+#print('-' * 20)
+
+conta_lou.transferir(500, conta_lais)
 conta_lou.consultar_saldo()
-conta_lou.consultar_historico_transacoes()
+conta_lais.consultar_saldo()
 
+print('-' * 20)
+conta_lou.consultar_historico_transacoes()
+conta_lais.consultar_historico_transacoes()
 
 
