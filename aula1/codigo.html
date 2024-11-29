@@ -1,0 +1,44 @@
+<html>
+    <script>
+        console.log('Ola, mundo estou programando em javascript')
+        console.log(1+2)
+        console.log(typeof 1.2, typeof "nome")
+        console.log(Math.PI) //numero pi
+        console.log(Math.E) // numero pre programático
+        console.log(1/0) //do tipo infinito
+        console.log("A" / 2) // NAN - not a number
+        console.log(null) //ausência total de valor
+        console.log(undefined) // indefinido
+        console.log(typeof null) // o js entende que é um objeto, é != de undefined
+        console.log(typeof undefined) // undefined é um tipo específico
+    </script>
+
+    <script> // criação de objeto
+        console.log('CRIAÇÃO DE OBJETOS')
+        console.log({propriedade: "valor"})
+        console.log({
+            nome: "junior",
+            idade: 39,
+            endereco: { // objeto dentro de outro objeto
+                logradouro: "rua",
+                rua: "Tidadentes",
+                numero: 1963,
+                complemento: "BL 4 AP 31"
+            }
+        })
+    </script>
+
+    <script>
+        console.log('CRIAÇÃO DE ARRAYS')
+        console.log([1,2,3,4,5,6]) // o acesso dos valores é através dos índices
+        console.log([1, "A", "B"])
+        console.log(1, "A", {nome: "junior", sobrenome: "silva"})
+    </script>
+
+    <script>
+        console.log('INCLUINDO DATAS')
+        console.log(Date()) // data e hora corrente => new Date()
+        
+        console.log(new Date(2024, 9, 29)) // irá definir a data para 29/10/2024
+    </script>
+</html>
