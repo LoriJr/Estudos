@@ -1,16 +1,31 @@
-class Carro:
-    carros = []
-    def __init__(self, modelo, cor, ano):
-        self.modelo = modelo
-        self.cor = cor
-        self.ano = ano
-        Carro.carros.append(self)
+'''
+Agora é sua vez! Crie uma nova classe chamada Pessoa com atributos como nome, idade e profissão. Adicione um método especial __str__ para imprimir uma representação em string da pessoa. Implemente também um método de instância chamado aniversario que aumenta a idade da pessoa em um ano. Por fim, adicione uma propriedade chamada saudacao que retorna uma mensagem de saudação personalizada com base na profissão da pessoa.
+'''
+class Pessoa:
+    def __init__(self, nome, idade, profissao):
+        self.nome = nome
+        self.idade = idade
+        self.profissao = profissao
+    
+    def __str__(self):
+        return f'{self.nome} {self.idade} {self.profissao}'
+    
+    def aniversario(self):
+        self.idade += 1
 
-    def listar_carros():
-        for carro in Carro.carros:
-            print(f'{carro.modelo} | {carro.cor} | {carro.ano}')
+    def imprime_resultado(self):
+        print(f'{self.nome} {self.idade} {self.saudacao}')
 
-carro1 = Carro('Astra', 'Preto', 2010)
-carro2 = Carro('Civic', 'Prata', 2020)
+    @property
+    def saudacao(self):
+        if self.profissao:
+            return f'Olá, sou {self.nome}! Trabalho como {self.profissao}.'
+        else:
+            return f'Olá, sou {self.nome}!'
 
-Carro.listar_carros()
+junior = Pessoa('Junior', 39, 'Analista de Sistemas Jr')
+
+junior.aniversario()
+
+junior.imprime_resultado()
+
