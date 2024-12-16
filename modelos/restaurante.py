@@ -10,12 +10,12 @@ class Restaurante:
         self._ativo = False
         Restaurante.restaurantes.append(self)
         
-    def __str__(self): 
-        '''
-        método especial para alterar a forma de impressão dos itens do objeto em String
-        nesse caso só está como exemplo, pois o método listar_restaurante já está com a formatação do abjeto
-        '''
-        return self._nome, self._categoria
+    # def __str__(self): 
+    #     '''
+    #     método especial para alterar a forma de impressão dos itens do objeto em String
+    #     nesse caso só está como exemplo, pois o método listar_restaurante já está com a formatação do abjeto
+    #     '''
+    #     return self._nome, self._categoria
     
     @classmethod
     def listar_restaurantes(cls):
@@ -43,12 +43,7 @@ class Restaurante:
         '''
         self._ativo = not self._ativo
     
-    
-restaurante_praca = Restaurante('praça', 'Gourmet')
-restaurante_praca.alternar_estado()
-restaurante_pizza = Restaurante('pizza express', 'Italiana')
 
-Restaurante.listar_restaurantes()
 
 #print(vars(restaurante_praca))
 
