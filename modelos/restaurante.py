@@ -1,3 +1,5 @@
+from modelos.avaliacao import Avaliacao
+
 class Restaurante:
     restaurantes = []
 
@@ -9,6 +11,7 @@ class Restaurante:
         self._categoria = categoria.upper()
         self._ativo = False
         Restaurante.restaurantes.append(self)
+        self._avaliacao = []
         
     # def __str__(self): 
     #     '''
@@ -24,11 +27,11 @@ class Restaurante:
         no for restaurante in cls.restaurantes é onde ele faz a referência para a classe.
         a saída do método são os prints, já formatados.
         '''
-        mensagem = (f'{'Nome do Restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | Status')
+        mensagem = (f'{'Nome do Restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} | {'Status'}')
         print(mensagem)
         print('-'* len(mensagem))
         for restaurante in cls.restaurantes:
-            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacoes).ljust(25)} | {restaurante.ativo}')
         
     @property
     def ativo(self):
@@ -43,6 +46,23 @@ class Restaurante:
         '''
         self._ativo = not self._ativo
     
+    def receber_avaliacao(self, cliente, nota):
+        nota = Avaliacao(cliente, nota)
+        self._avaliacao.append(nota)
+
+    @property #o property aqui nos dá a condiçao de ler esses dados
+    def media_avaliacoes(self):
+        if not self._avaliacao:
+            return 0
+        else:
+            soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
+            quantidade_notas = len(self._avaliacao)
+            media = round(soma_notas / quantidade_notas, 1) #o round aredonta os valores e no final escolhemos quantas cadas depois da vírgula, que no caso é 1
+            return media
+        
+
+
+
 
 
 #print(vars(restaurante_praca))
