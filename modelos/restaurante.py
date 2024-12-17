@@ -46,14 +46,21 @@ class Restaurante:
         '''
         self._ativo = not self._ativo
     
+    @property
+    def nota_maxima(self):
+        nota = 5 if self._nota > 5 else 'Nota inválida'
+        return nota
+
     def receber_avaliacao(self, cliente, nota):
-        nota = Avaliacao(cliente, nota)
-        self._avaliacao.append(nota)
+        if 0 < nota <= 5:
+            nota = Avaliacao(cliente.title(), nota)
+            self._avaliacao.append(nota)
+            
 
     @property #o property aqui nos dá a condiçao de ler esses dados
     def media_avaliacoes(self):
         if not self._avaliacao:
-            return 0
+            return 'Avaliação não recebida'
         else:
             soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
             quantidade_notas = len(self._avaliacao)

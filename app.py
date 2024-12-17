@@ -1,12 +1,20 @@
 from modelos.restaurante import Restaurante
 
 restaurante_praca = Restaurante('praça', 'Gourmet')
-# restaurante_pizza = Restaurante('pizza express', 'Italiana')
-# restaurante_mexicano = Restaurante('Mexican Food', 'Mexicana')
+restaurante_pizza = Restaurante('pizza express', 'Italiana')
+restaurante_mexicano = Restaurante('Mexican Food', 'Mexicana')
 
 restaurante_praca.receber_avaliacao('Jr', 10)
 restaurante_praca.receber_avaliacao('Joca', 2)
 restaurante_praca.receber_avaliacao('Lili', 5)
+
+restaurante_mexicano.receber_avaliacao('monica', 4)
+restaurante_mexicano.receber_avaliacao('joao', 2)
+restaurante_mexicano.receber_avaliacao('tiago', 5)
+
+
+
+
 
 restaurante_praca.alternar_estado()
 
